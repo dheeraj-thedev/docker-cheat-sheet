@@ -31,6 +31,62 @@ Developers can get going quickly by starting with one of the 13,000+ apps availa
     ## A Story --------- 
 When I started working on bug fixes, tickets those were required to be converted into solutions was a very big pain to again prepare a VDI from scratch, If you need to ugrade MySql 5+ to MySql 8+  Version in your stack the you need to configure things accordingly and every one has to prepare an enviroment to be able to setup the code base and it does not ends here the same has to be followed in sequesnce of steps which I did as a developer to other nodes I am sure Test Engineers and deployement engineers used to waste huge time in setup of environments.
 
+If you have a need to quickly deploy a MySQL server?
+
+Many web applications and services depend upon databases. Chances are, your business depends on web applications and services. If you don't want to set up a dedicated server to host a remote database, you can always go with a containerized solution. Although this might not be the best option for apps that scale to enterprise levels, for medium sized and smaller instances, this could be a real boon, especially for those without the hardware available to use as a dedicated database server.
+
+To alleviate this headache, I'm going to walk you through the process of deploying a MySQL Docker container, such that you can then connect to it from other containers or applications. I will assume you already have Docker up and running. Although I will be demonstrating this on the Ubuntu 16.10 Server platform, the steps will be the same, regardless of operating system (so long as Docker is running).
+
+### The first thing you must do is pull down the correct image. I'm going to go with the latest release of MySQL. Do note, if you have a need for a specific release, you can swap out the latest tag with the likes of 5.5, 5.6, 5.7, 8.0.
+
+
+## Pulling the image.
+	### In order to pull the MySQL Docker image down, issue the command:
+    		docker pull mysql/mysql-server:latest
+
+## Deploying the container.
+
+			docker run --name=mysql01 -d mysql/mysql-server:latest
+
+## Need to check some data on container.
+			docker ps |  docker  ps -a 
+
+## Need to connect if everything is fine here -- 
+
+	Some Notes **
+### The MySQL password:
+		When you install MySQL on a Linux machine | Windows Machine or even mac, you will either be prompted to create a database admin password during or after installation. However, we have just deployed a Docker container that already has the database installed and running. How do we make use of that database without having set a password? Fortunately, it's actually quite easy. During the deployment, a random password will have been generated for you to use. To see that password, issue the command:
+			
+        docker logs <yourSQLContainer>
+
+## Stop the container and issue below command 
+		docker exec -it mysql01 mysql -uroot -pYourPasword
+
+## Change the password :
+		Using MySQl Statement ALTER USER 'root'@'localhost' IDENTIFIED BY 'newpassword';
+		is a part of SQL Admin 
+
+
+### Welcome to the simplicity of containers
+And that's all there is to setting up a MySQL container. If you don't have the spare hardware to set up a dedicated database server, or you simply need a database server for testing purposes, Docker makes the deployment of a containerized database server incredibly simple. Give this a go and see if it doesn't perfectly suit your needs.
+
+
+## FAQs;
+	
+### Difference between Docker Image and Container?
+Docker is a platform that runs each and every application segregated and securely by the use of kernel containerization feature. It is a highly efficient and lightweight platform in terms of resources it uses. It uses the host underlying kernel containerization feature rather than creating its own hypervisor.
+
+Docker Image is a set of files which has no state, whereas Docker Container is the instantiation of Docker Image. In other words, Docker Container is the run time instance of images.
+
+
+## How is Docker different from other container technologies?
+### Docker is the latest and most popular container technology build in the Cloud era. With the help of Docker technology, more applications run on the same old servers, and it also helps in making it possible to package and ship programs.
+
+### There are certain features that make the Docker technology different from other container technology. Since it was created in the Cloud era, much of the things have been accomplished nicely which are missing in other container technologies. Docker can run on any infrastructure, be it your laptop or the Cloud. Docker has a Container HUB that acts as the repository of containers. It can easily be downloaded and used. Containers can also be shared with your applications. Docker is a well-documented container.
+
+
+
+
 Here we solve the proble by dockerize the  what has to be tested and deployed if testing is done to go ahead.
 
 Docker helps developers build and ship higher-quality applications, faster." -- [What is Docker](https://www.docker.com/what-docker#copy1)
