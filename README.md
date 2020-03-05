@@ -37,7 +37,7 @@ Many web applications and services depend upon databases. Chances are, your busi
 
 To alleviate this headache, I'm going to walk you through the process of deploying a MySQL Docker container, such that you can then connect to it from other containers or applications. I will assume you already have Docker up and running. Although I will be demonstrating this on the Ubuntu 16.10 Server platform, the steps will be the same, regardless of operating system (so long as Docker is running).
 
-### The first thing you must do is pull down the correct image. I'm going to go with the latest release of MySQL. Do note, if you have a need for a specific release, you can swap out the latest tag with the likes of 5.5, 5.6, 5.7, 8.0.
+## The first thing you must do is pull down the correct image. I'm going to go with the latest release of MySQL. Do note, if you have a need for a specific release, you can swap out the latest tag with the likes of 5.5, 5.6, 5.7, 8.0.
 
 
 ## Pulling the image.
