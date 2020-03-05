@@ -28,6 +28,11 @@
 
 Developers can get going quickly by starting with one of the 13,000+ apps available on Docker Hub. Docker manages and tracks changes and dependencies, making it easier for sysadmins to understand how the apps that developers build work. And with Docker Hub, developers can automate their build pipeline and share artifacts with collaborators through public or private repositories.
 
+    ## A Story --------- 
+When I started working on bug fixes, tickets those were required to be converted into solutions was a very big pain to again prepare a VDI from scratch, If you need to ugrade MySql 5+ to MySql 8+  Version in your stack the you need to configure things accordingly and every one has to prepare an enviroment to be able to setup the code base and it does not ends here the same has to be followed in sequesnce of steps which I did as a developer to other nodes I am sure Test Engineers and deployement engineers used to waste huge time in setup of environments.
+
+Here we solve the proble by dockerize the  what has to be tested and deployed if testing is done to go ahead.
+
 Docker helps developers build and ship higher-quality applications, faster." -- [What is Docker](https://www.docker.com/what-docker#copy1)
 
 ## Prerequisites
